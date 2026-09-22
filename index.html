@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatiana Nicola K. Pono, CHRA | Interactive Work Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #FAF8F5;
+            --bg-surface: #FFFFFF;
+            --bg-accent: #F2ECE6;
+            --text-dark: #1A1C1E;
+            --text-muted: #5A5E63;
+            --brand-terracotta: #D98A4B;
+            --brand-terracotta-dark: #B86E33;
+            --brand-sage: #7A8A76;
+            --border-light: #E5DDD5;
+            --shadow-soft: 0 12px 32px rgba(26, 28, 30, 0.04);
+            --shadow-hover: 0 20px 48px rgba(217, 138, 75, 0.16);
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-pill: 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--brand-terracotta);
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Syne', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(250, 248, 245, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            padding: 1.1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .logo span {
+            color: var(--brand-terracotta);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-terracotta);
+        }
+
+        .btn-primary {
+            background-color: var(--brand-terracotta);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(217, 138, 75, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-terracotta-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(217, 138, 75, 0.35);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--border-light);
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--brand-terracotta);
+            color: var(--brand-terracotta);
+            background: var(--bg-surface);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 11rem 0 5rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: var(--bg-accent);
+            color: var(--brand-terracotta-dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .hero-title {
+            font-size: 3.6rem;
+            line-height: 1.08;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 580px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .stat-item h3 {
+            font-size: 2.4rem;
+            color: var(--brand-terracotta);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+
+        .hero-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-img {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+
+        /* Tagline Banner */
+        .tagline-banner {
+            background: linear-gradient(135deg, var(--text-dark), #2D3035);
+            color: white;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            margin: 2rem 0 4rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .tagline-banner h2 {
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .tagline-banner span {
+            color: var(--brand-terracotta);
+        }
+
+        /* Section Commons */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Tech Tool Tags */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .tool-chip {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            padding: 0.6rem 1.3rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tool-chip:hover {
+            border-color: var(--brand-terracotta);
+            color: var(--brand-terracotta);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Interactive Tabs */
+        .tabs-container {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+        }
+
+        .tab-buttons {
+            display: flex;
+            background: var(--bg-accent);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1.3rem;
+            border: none;
+            background: none;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .tab-btn:hover {
+            color: var(--brand-terracotta);
+        }
+
+        .tab-btn.active {
+            background: var(--bg-surface);
+            color: var(--brand-terracotta);
+            border-bottom: 3px solid var(--brand-terracotta);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 3.5rem;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .focus-box {
+            padding: 1.8rem;
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .focus-box:hover {
+            border-color: var(--brand-terracotta);
+            background: var(--bg-surface);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .focus-box h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .focus-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Filterable Portfolio Grid */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.65rem 1.5rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-light);
+            background: var(--bg-surface);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--brand-terracotta);
+            color: white;
+            border-color: var(--brand-terracotta);
+            box-shadow: 0 4px 12px rgba(217, 138, 75, 0.25);
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            padding: 2.2rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--brand-terracotta);
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--brand-terracotta);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .btn-text {
+            color: var(--brand-terracotta);
+            font-weight: 700;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .btn-text:hover {
+            color: var(--brand-terracotta-dark);
+            transform: translateX(4px);
+        }
+
+        /* Infinite Testimonial Marquee */
+        .marquee-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 1rem 0;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+            animation: marqueeScroll 45s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-card {
+            width: 380px;
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            padding: 2.2rem;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .star-rating {
+            color: #F5A623;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 28, 30, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            animation: fadeIn 0.25s ease forwards;
+        }
+
+        .modal-content {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            max-width: 680px;
+            width: 100%;
+            padding: 3rem;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid var(--border-light);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.8rem;
+            right: 1.8rem;
+            font-size: 1.2rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-accent);
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            background: var(--brand-terracotta);
+            color: white;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .timeline-item {
+            padding: 2.2rem;
+            background: var(--bg-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            border-color: var(--brand-terracotta);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .timeline-role {
+            font-size: 1.3rem;
+            color: var(--brand-terracotta);
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-company {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: var(--text-dark);
+            color: white;
+            border-radius: 32px;
+            padding: 5rem 3rem;
+            text-align: center;
+            margin-top: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box h2 {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+
+        .contact-box p {
+            color: #A0A5AA;
+            margin-bottom: 2.5rem;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile Nav & Responsiveness */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 8rem;
+                gap: 3rem;
+            }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .tab-buttons {
+                flex-direction: column;
+            }
+            .tab-btn.active {
+                border-bottom: none;
+                border-left: 4px solid var(--brand-terracotta);
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">TATIANA PONO<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">Who I Am</a></li>
+                <li><a href="#focus">Core Focus</a></li>
+                <li><a href="#portfolio">Case Studies</a></li>
+                <li><a href="#testimonials">Student Impact</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+            <a href="https://calendly.com/tatiananicolapono/30min" target="_blank" class="btn-primary"><i class="fa-regular fa-calendar-check"></i> Book a Call</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container hero" id="about">
+        <div>
+            <div class="hero-badge">
+                <i class="fa-solid fa-award"></i> Top 4 CHRA & Summa Cum Laude
+            </div>
+            <h1 class="hero-title">Client Fulfillment & Operations Coordinator</h1>
+            <p class="hero-subtitle">
+                I streamline high-touch client workflows, automate engagement pipelines, and empower communities through modern operational systems and human-centered support.
+            </p>
+            <div class="hero-cta-group">
+                <a href="https://calendly.com/tatiananicolapono/30min" target="_blank" class="btn-primary"><i class="fa-regular fa-calendar-days"></i> Book a Call</a>
+                <a href="https://drive.google.com/file/d/1erj36oVEzz1sz2SPJ-qdqrYss99W_znF/view?usp=sharing" target="_blank" class="btn-outline"><i class="fa-regular fa-file-pdf"></i> View Resume</a>
+                <a href="https://canva.link/5vjoa6hw83qpqr9" target="_blank" class="btn-outline"><i class="fa-regular fa-file-powerpoint"></i> Portfolio Deck</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>170+</h3>
+                    <p>Clients & Students</p>
+                </div>
+                <div class="stat-item">
+                    <h3>80%</h3>
+                    <p>Engagement Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Top 4</h3>
+                    <p>CHRA Ranking</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-card-header">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQFl-haFQuKdxA/profile-displayphoto-crop_800_800/B4DaDIoCGRJEAI-/0/1790072335442?e=1791417600&v=beta&t=ZMsYb6KGL68XlgmplhdLq4jKA9UcNRLVwSC1ZynHgW0" alt="Tatiana Nicola K. Pono" class="profile-img" onerror="this.src='https://via.placeholder.com/150/D98A4B/FFFFFF?text=TP'">
+                <div>
+                    <h3 style="font-size: 1.3rem;">Tatiana Nicola K. Pono</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Pasay City, Metro Manila, PH</p>
+                </div>
+            </div>
+            <hr style="border: none; border-top: 1px solid var(--border-light); margin-bottom: 1.5rem;">
+            <p style="font-size: 0.98rem; color: var(--text-muted); margin-bottom: 1.8rem;">
+                Currently specializing in client onboarding, estate planning setup (Wealth.com), partner delivery workflows, and automated pipeline tracking.
+            </p>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                <span class="hero-badge" style="margin: 0; font-size: 0.78rem;">Google Apps Script</span>
+                <span class="hero-badge" style="margin: 0; font-size: 0.78rem;">Circle / Skool</span>
+                <span class="hero-badge" style="margin: 0; font-size: 0.78rem;">Pipeline Automation</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tagline Banner -->
+    <div class="container">
+        <div class="tagline-banner">
+            <h2>BUILDING SYSTEMS. <span>CREATING MOMENTUM.</span> DRIVING GROWTH.</h2>
+        </div>
+    </div>
+
+    <!-- Tech Stack / Tools Section -->
+    <section class="container section" style="padding-top: 1rem;">
+        <h2 class="section-title">Tools & Systems Environment</h2>
+        <p class="section-desc">Tools and platforms I leverage daily for coaching, fulfillment, automation, and student records.</p>
+        
+        <div class="tools-grid">
+            <span class="tool-chip"><i class="fa-solid fa-layer-group" style="color: #D98A4B;"></i> Wealth.com</span>
+            <span class="tool-chip"><i class="fa-solid fa-users" style="color: #D98A4B;"></i> Circle</span>
+            <span class="tool-chip"><i class="fa-solid fa-paper-plane" style="color: #D98A4B;"></i> Telegram</span>
+            <span class="tool-chip"><i class="fa-regular fa-calendar-check" style="color: #D98A4B;"></i> Calendly</span>
+            <span class="tool-chip"><i class="fa-solid fa-video" style="color: #D98A4B;"></i> Zoom</span>
+            <span class="tool-chip"><i class="fa-solid fa-headset" style="color: #D98A4B;"></i> Fathom</span>
+            <span class="tool-chip"><i class="fa-solid fa-film" style="color: #D98A4B;"></i> Loom</span>
+            <span class="tool-chip"><i class="fa-solid fa-database" style="color: #D98A4B;"></i> Close CRM</span>
+            <span class="tool-chip"><i class="fa-solid fa-chart-diagram" style="color: #D98A4B;"></i> HubSpot</span>
+            <span class="tool-chip"><i class="fa-solid fa-phone" style="color: #D98A4B;"></i> Aloware</span>
+            <span class="tool-chip"><i class="fa-solid fa-list-check" style="color: #D98A4B;"></i> ClickUp</span>
+            <span class="tool-chip"><i class="fa-solid fa-comments" style="color: #D98A4B;"></i> Intercom</span>
+            <span class="tool-chip"><i class="fa-brands fa-google" style="color: #D98A4B;"></i> Google Workspace</span>
+            <span class="tool-chip"><i class="fa-solid fa-code" style="color: #D98A4B;"></i> Google Apps Script</span>
+            <span class="tool-chip"><i class="fa-brands fa-microsoft" style="color: #D98A4B;"></i> Microsoft 365</span>
+        </div>
+    </section>
+
+    <!-- Core Focus Interactive Tabs -->
+    <section class="container section" id="focus">
+        <h2 class="section-title">Core Focus & Capabilities</h2>
+        <p class="section-desc">Discover how my experience across fulfillment, process design, and community operations drives measurable success.</p>
+
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="fulfillment"><i class="fa-solid fa-user-gear"></i> Client Fulfillment</button>
+                <button class="tab-btn" data-tab="workflow"><i class="fa-solid fa-diagram-project"></i> Workflow & Automation</button>
+                <button class="tab-btn" data-tab="community"><i class="fa-solid fa-people-group"></i> Community & Coaching</button>
+            </div>
+
+            <!-- Tab 1: Fulfillment -->
+            <div id="fulfillment" class="tab-content active">
+                <div class="grid-2">
+                    <div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Seamless Client Onboarding & Retention</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1.8rem;">
+                            I design structured client journeys from day one—managing intake workflows, configuring tool accesses, and maintaining clear communication channels.
+                        </p>
+                        <div class="focus-box">
+                            <h4>End-to-End Onboarding</h4>
+                            <p>Facilitated orientation and onboarding pathways for over 75+ active program participants.</p>
+                        </div>
+                    </div>
+                    <div class="grid-2" style="grid-template-columns: 1fr;">
+                        <div class="focus-box">
+                            <h4>Partner & Vendor Coordination</h4>
+                            <p>Managing estate planning and wealth setup workflows with third-party partners (e.g., Wealth.com).</p>
+                        </div>
+                        <div class="focus-box">
+                            <h4>Fulfillment Analytics</h4>
+                            <p>Monitoring real-time pipeline status and generating executive progress reports for leadership.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Workflow -->
+            <div id="workflow" class="tab-content">
+                <div class="grid-2">
+                    <div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Process Automation & Systems Architecture</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1.8rem;">
+                            Eliminating operational bottlenecks by integrating customized Google Sheets dashboards and Google Apps Script email triggers.
+                        </p>
+                        <div class="focus-box">
+                            <h4>Custom Email Automations</h4>
+                            <p>Built Apps Script triggers to automatically deliver personalized mid-month outreach and follow-up templates.</p>
+                        </div>
+                    </div>
+                    <div class="grid-2" style="grid-template-columns: 1fr;">
+                        <div class="focus-box">
+                            <h4>Centralized Trackers</h4>
+                            <p>Architecture of 12-month student and client progression databases with zero record drop-offs.</p>
+                        </div>
+                        <div class="focus-box">
+                            <h4>Playbooks & SOP Creation</h4>
+                            <p>Documented step-by-step operational workflows to standardize team execution across departments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Community -->
+            <div id="community" class="tab-content">
+                <div class="grid-2">
+                    <div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">High-Touch Coaching & Community Drive</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1.8rem;">
+                            Fostering vibrant, accountability-focused learning environments where participants feel supported at every step.
+                        </p>
+                        <div class="focus-box">
+                            <h4>Power Hour Focus Sessions</h4>
+                            <p>Hosted dedicated study and co-working hours to keep participants focused on certification and career goals.</p>
+                        </div>
+                    </div>
+                    <div class="grid-2" style="grid-template-columns: 1fr;">
+                        <div class="focus-box">
+                            <h4>Interactive Campaigns</h4>
+                            <p>Spearheaded community initiatives like Welcome Wednesday, driving engagement up to 80%.</p>
+                        </div>
+                        <div class="focus-box">
+                            <h4>Social Impact Leadership</h4>
+                            <p>Founder of Project Bugambilya, providing financial literacy and livelihood support for solo mothers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Filterable Portfolio Grid -->
+    <section class="container section" id="portfolio">
+        <h2 class="section-title">Featured Work & Case Studies</h2>
+        <p class="section-desc">In-depth case studies detailing systems created, operational challenges solved, and results delivered.</p>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="automation">Automation & Systems</button>
+            <button class="filter-btn" data-filter="fulfillment">Fulfillment & Onboarding</button>
+            <button class="filter-btn" data-filter="community">Community Leadership</button>
+        </div>
+
+        <div class="grid-3" id="projects-grid">
+
+            <!-- Project 1 -->
+            <div class="project-card" data-category="automation">
+                <div>
+                    <div class="project-tag">Google Apps Script • Sheets</div>
+                    <h3 class="project-title">Automated Pipeline Tracker</h3>
+                    <p class="project-desc">Designed a centralized database and automated email trigger system to monitor 170+ students over 12-month program cycles.</p>
+                </div>
+                <div class="project-meta">
+                    <span>GovTech Academy</span>
+                    <button class="btn-text" data-title="Automated Pipeline Tracker & Email Engine" data-body="System Challenge: High student volume (170+ learners) across multiple tier programs led to manual tracking inefficiencies and potential drop-offs. Solution: Designed a centralized Google Sheets Pipeline Tracker to track certification, resume, and application milestones in real-time. Built a custom Google Apps Script automation that sends personalized HTML email check-ins on the 15th of every month to active students. Outcome: Reduced administrative overhead by 60% and maintained zero record drop-offs across 12-month program lifecycles.">View Details <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card" data-category="fulfillment">
+                <div>
+                    <div class="project-tag">Fulfillment • Wealth.com</div>
+                    <h3 class="project-title">Legacy Blueprint Fulfillment</h3>
+                    <p class="project-desc">Coordinates onboarding, setup, and partner delivery for high-touch estate planning clients.</p>
+                </div>
+                <div class="project-meta">
+                    <span>Fulfillment Ops</span>
+                    <button class="btn-text" data-title="Legacy Blueprint Fulfillment & Partner Ops" data-body="System Challenge: Complex multi-tier client fulfillment requiring high-touch onboarding, estate planning setup, and partner delivery alignment. Solution: Managed end-to-end client onboarding and Wealth.com account setup workflows. Maintained pipeline activity trackers, resolved client friction points, and delivered weekly partner fulfillment reports. Outcome: Streamlined client intake speed and achieved high client satisfaction rates during peak intake cycles.">View Details <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card" data-category="fulfillment">
+                <div>
+                    <div class="project-tag">Onboarding • Circle / Skool</div>
+                    <h3 class="project-title">Tiered Onboarding Systems</h3>
+                    <p class="project-desc">Developed customized orientation presentations and pathways across Blueprint Community, Accelerator, and VIP tracks.</p>
+                </div>
+                <div class="project-meta">
+                    <span>GovTech Academy</span>
+                    <button class="btn-text" data-title="Tiered Student Onboarding Framework" data-body="System Challenge: Learners needed clear expectations and structured orientation across 3 distinct program tiers (Blueprint Community, Accelerator, VIP Inner Circle). Solution: Facilitated live orientation sessions and built custom onboarding presentation decks outlining learning roadmaps, community guidelines, and support resources. Outcome: Successfully onboarded 75+ active students with an initial orientation completion rate above 90%.">View Details <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card" data-category="community">
+                <div>
+                    <div class="project-tag">Community • Coaching</div>
+                    <h3 class="project-title">Power Hour Co-Working</h3>
+                    <p class="project-desc">Structured live focus sessions where students studied for certifications, revised resumes, and applied for target positions.</p>
+                </div>
+                <div class="project-meta">
+                    <span>GovTech Academy</span>
+                    <button class="btn-text" data-title="Power Hour Co-Working & Accountability" data-body="System Challenge: Remote learners faced procrastination and goal fatigue during self-paced study phases. Solution: Designed and hosted live 1-hour focus sessions ('Power Hours') structured around goal-setting, quiet co-working, and live Q&A support. Outcome: Increased weekly student milestone completion by 40% and boosted student confidence prior to Security+ certification exams.">View Details <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card" data-category="community">
+                <div>
+                    <div class="project-tag">Social Impact • Livelihood</div>
+                    <h3 class="project-title">Project Bugambilya</h3>
+                    <p class="project-desc">Founded a community initiative providing financial literacy and sustainable livelihood programs for solo mothers.</p>
+                </div>
+                <div class="project-meta">
+                    <span>Founder & Proponent</span>
+                    <button class="btn-text" data-title="Project Bugambilya - Solo Mothers Initiative" data-body="System Challenge: Solo mothers in local communities lacked accessible financial education and income-generating opportunities. Solution: Founded and spearheaded a community program delivering workshops on budgeting, financial literacy, and livelihood skills. Built local stakeholder partnerships to secure program funding. Outcome: Empowered local solo mothers with actionable financial skills and sustainable income pathways.">View Details <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card" data-category="automation">
+                <div>
+                    <div class="project-tag">Process Documentation</div>
+                    <h3 class="project-title">Student Check-In Playbook</h3>
+                    <p class="project-desc">Created standard operating procedures and communication frameworks to streamline progress tracking across teams.</p>
+                </div>
+                <div class="project-meta">
+                    <span>GovTech Academy</span>
+                    <button class="btn-text" data-title="Check-In Flow Playbook & SOP" data-body="System Challenge: Communication inconsistency across coaching specialists leading to fragmented student records. Solution: Authored a comprehensive Check-In Flow Playbook documenting exact follow-up intervals, script templates, blocker handling, and CRM logging steps. Outcome: Standardized team-wide coaching outreach and ensured uniform student support quality.">View Details <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Infinite Testimonials Marquee Section -->
+    <section class="section" id="testimonials" style="background: var(--bg-accent); padding: 5rem 0;">
+        <div class="container">
+            <h2 class="section-title">Student & Community Reviews</h2>
+            <p class="section-desc">Real feedback and experiences shared by students and community members.</p>
+        </div>
+
+        <div class="marquee-container">
+            <div class="marquee-track">
+                
+                <!-- Review 1 -->
+                <div class="marquee-card">
+                    <div>
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"I appreciate Tatiana, who always helps me whenever I got situations. She went the extra mile and made sure I was OK! She helped me handle my situations. I appreciate her so much!😊👍❤️❤️❤️❤️❤️"</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top: 1.5rem;">
+                        <div class="testimonial-avatar">G</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Grace</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Academy Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="marquee-card">
+                    <div>
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"I loved having training uniquely tailored to my specific circumstances. Tatiana was amazing in meeting with me consistently to help with studying strategies, clearing roadblocks, and figuring out what to focus on next. Well worth the investment."</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top: 1.5rem;">
+                        <div class="testimonial-avatar">B</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Ben J.</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Academy Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="marquee-card">
+                    <div>
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"GovTech has helped me structure my learning. Anytime I expressed struggle they gave me tips to get through. Now I have passed my test! Tatiana was my accountability buddy. She checked in and gave me many tips along the way."</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top: 1.5rem;">
+                        <div class="testimonial-avatar">S</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Samantha R.</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Certified Graduate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="marquee-card">
+                    <div>
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"Tatiana has been very helpful, encouraging, and motivating through my journey. I love her energy."</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top: 1.5rem;">
+                        <div class="testimonial-avatar">M</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Marco</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Academy Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="marquee-card">
+                    <div>
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"As someone who had a passion for tech but no idea where to start... my check-in specialist Tatiana has been a huge help and made everything much easier to understand."</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top: 1.5rem;">
+                        <div class="testimonial-avatar">K</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Kristian V.</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Academy Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DUPLICATE SET FOR CONTINUOUS INFINITE LOOP -->
+                <div class="marquee-card">
+                    <div>
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"I appreciate Tatiana, who always helps me whenever I got situations. She went the extra mile and made sure I was OK! She helped me handle my situations. I appreciate her so much!😊👍❤️❤️❤️❤️❤️"</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top: 1.5rem;">
+                        <div class="testimonial-avatar">G</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Grace</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Academy Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="marquee-card">
+                    <div>
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"I loved having training uniquely tailored to my specific circumstances. Tatiana was amazing in meeting with me consistently to help with studying strategies, clearing roadblocks, and figuring out what to focus on next."</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top: 1.5rem;">
+                        <div class="testimonial-avatar">B</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Ben J.</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Academy Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="marquee-card">
+                    <div>
+                        <div class="star-rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-quote">"GovTech has helped me structure my learning. Anytime I expressed struggle they gave me tips to get through. Now I have passed my test! Tatiana was my accountability buddy."</p>
+                    </div>
+                    <div class="testimonial-author" style="margin-top: 1.5rem;">
+                        <div class="testimonial-avatar">S</div>
+                        <div>
+                            <h4 style="font-size: 1rem;">Samantha R.</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Certified Graduate</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Timeline -->
+    <section class="container section" id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-desc">A track record of operational excellence across remote organizations and social impact initiatives.</p>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-role">Legacy Blueprint Fulfillment Coordinator</div>
+                <div class="timeline-company">Melanin Money (Remote)</div>
+                <div class="timeline-date">May 2026 – Present</div>
+                <p style="color: var(--text-muted); font-size: 0.98rem;">Coordinates client onboarding, estate planning setups (Wealth.com), pipeline activity monitoring, and partner fulfillment reports.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-role">VIP Accountability Coach & Operations Specialist</div>
+                <div class="timeline-company">GovTech Academy (Remote)</div>
+                <div class="timeline-date">August 2025 – Present</div>
+                <p style="color: var(--text-muted); font-size: 0.98rem;">Leads student retention, onboarding, automated check-in systems, and career roadmap guidance across multiple program tiers.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-role">Talent Acquisition Specialist</div>
+                <div class="timeline-company">JDN Tuition (Remote)</div>
+                <div class="timeline-date">January 2026</div>
+                <p style="color: var(--text-muted); font-size: 0.98rem;">Managed candidate screening, interviews, tutor qualification evaluations, and database accuracy.</p>
+            </div>
+
+        </div>
+
+        <div class="contact-box" id="contact">
+            <h2>Let's Create Exceptional Systems Together.</h2>
+            <p>I bring structure, clarity, and genuine care to client fulfillment and operational workflows. Select an option below to connect or schedule a direct chat!</p>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <a href="https://calendly.com/tatiananicolapono/30min" target="_blank" class="btn-primary" style="background: white; color: var(--text-dark);"><i class="fa-regular fa-calendar-days"></i> Schedule via Calendly</a>
+                <a href="mailto:tatiananicolapono@gmail.com" class="btn-primary" style="background: var(--brand-terracotta);"><i class="fa-solid fa-envelope"></i> Send Email</a>
+                <a href="https://drive.google.com/file/d/1erj36oVEzz1sz2SPJ-qdqrYss99W_znF/view?usp=sharing" target="_blank" class="btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;"><i class="fa-regular fa-file-pdf"></i> View Resume</a>
+                <a href="https://www.linkedin.com/in/tatiana-nicola-pono-87a054292/" target="_blank" class="btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            </div>
+
+            <p style="font-size: 0.9rem; color: #80858A;">
+                Pasay City, Metro Manila, Philippines | +63 945 406 5206
+            </p>
+        </div>
+    </section>
+
+    <!-- Details Modal -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal-btn" aria-label="Close modal">&times;</button>
+            <h3 id="modal-title" style="font-size: 1.8rem; margin-bottom: 1rem;">Project Title</h3>
+            <p id="modal-body" style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem;">Project details...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Capabilities Tabs Handling
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    button.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Filter Portfolio Projects
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Modal Functionality
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            function openModal(title, body) {
+                modalTitle.innerText = title;
+                modalBody.innerText = body;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            document.querySelectorAll('.btn-text').forEach(button => {
+                button.addEventListener('click', () => {
+                    const title = button.getAttribute('data-title');
+                    const body = button.getAttribute('data-body');
+                    openModal(title, body);
+                });
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
