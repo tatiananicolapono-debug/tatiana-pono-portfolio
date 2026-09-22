@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tatiana Nicola K. Pono, CHRA | Client Fulfillment, Operations & Systems</title>
-    <meta name="description" content="Tatiana Nicola K. Pono is a client fulfillment and operations professional specializing in onboarding, workflow systems, community operations, automation, and client experience.">
+    <title>Tatiana Nicola K. Pono, CHRA | Client Fulfillment & Operations Lead</title>
+    <meta name="description" content="Tatiana Nicola K. Pono is a Client Fulfillment, Operations, and Onboarding Specialist combining human-centered strategies with structured systems.">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tatiana Nicola K. Pono, CHRA | Client Fulfillment, Operations & Systems">
-    <meta property="og:description" content="I build streamlined client workflows, automate operational processes, and create systems that keep teams and clients moving forward.">
+    <meta property="og:title" content="Tatiana Nicola K. Pono, CHRA | Client Fulfillment & Operations">
+    <meta property="og:description" content="Streamlining client experiences, onboarding workflows, and operational systems with human-centered precision.">
     <meta property="og:url" content="https://tatiananicolapono-debug.github.io/tatiana-pono-portfolio/">
     <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D4D03AQFl-haFQuKdxA/profile-displayphoto-crop_800_800/B4DaDIoCGRJEAI-/0/1790072335442?e=1791417600&v=beta&t=ZMsYb6KGL68XlgmplhdLq4jKA9UcNRLVwSC1ZynHgW0">
 
@@ -1431,20 +1431,24 @@
         
         <div class="metrics-grid reveal-up">
             <div class="metric-card">
-                <div class="metric-number">300+</div>
+                <div class="metric-number" data-target="300">0</div>
                 <div class="metric-title">Clients Facilitated</div>
+                <div class="metric-context">Systems Onboarding and Outreach</div>
             </div>
             <div class="metric-card">
-                <div class="metric-number">170+</div>
+                <div class="metric-number" data-target="170">0</div>
                 <div class="metric-title">Learners Managed</div>
+                <div class="metric-context">Multi-Tier Program Operations</div>
             </div>
             <div class="metric-card">
-                <div class="metric-number">80%</div>
+                <div class="metric-number" data-target="80" data-suffix="%">0</div>
                 <div class="metric-title">Active Engagement</div>
+                <div class="metric-context">Weekly Cohort Participation</div>
             </div>
             <div class="metric-card">
-                <div class="metric-number">100%</div>
+                <div class="metric-number" data-target="100" data-suffix="%">0</div>
                 <div class="metric-title">On-Time Outreach</div>
+                <div class="metric-context">Automated Monthly Triggers</div>
             </div>
         </div>
 
@@ -1699,7 +1703,7 @@
         </div>
     </footer>
 
-    <!-- PORTFOLIO AI ASSISTANT -->
+    <!-- FLOATING PORTFOLIO ASSISTANT -->
     <button class="ai-widget-button" id="ai-toggle-btn" aria-label="Open Portfolio Assistant">
         <i class="fa-solid fa-robot"></i> Ask Tatiana’s Portfolio Assistant
     </button>
@@ -1792,16 +1796,13 @@
                 });
             });
 
-            // Animated Counters
-            const counters = document.querySelectorAll('.metric-number');
-            let counted = false;
+            // Universal Animated Counter Trigger
+            const countElements = document.querySelectorAll('.metric-number[data-target]');
 
-            function startCounters() {
-                const triggerBottom = window.innerHeight * 0.85;
-                const metricsElem = document.getElementById('metrics');
-                if (metricsElem && metricsElem.getBoundingClientRect().top < triggerBottom && !counted) {
-                    counted = true;
-                    counters.forEach(counter => {
+            const countObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
                         const target = +counter.getAttribute('data-target');
                         const suffix = counter.getAttribute('data-suffix') || '+';
                         let count = 0;
@@ -1817,10 +1818,12 @@
                             }
                         };
                         updateCount();
-                    });
-                }
-            }
-            window.addEventListener('scroll', startCounters);
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            countElements.forEach(el => countObserver.observe(el));
 
             // Core Focus Tabs Handling
             const tabButtons = document.querySelectorAll('.tab-btn');
